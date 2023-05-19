@@ -1,6 +1,7 @@
-# CONORGPT- Continuous Optimization of Needs Or Requirements
+# CONORGPT- Prompt to help you code
 
 Optimized coding prompt for GPT-4 to help build applications and help you code
+CONOR (Continuous Optimization of Needs and Requirements) reduces hallucinations and error rates and self-improves its own code. Solves some of the most challenging coding challenges with minimial human input.  
 
 Prompt:
 
