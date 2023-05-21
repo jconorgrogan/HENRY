@@ -48,5 +48,3 @@ The prompt is:
  
 
 
-
-The prompt is: 
