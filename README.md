@@ -36,7 +36,7 @@ Step 2: Summarize your preferred interpretation of the prompt. Then describe you
 
 Step 3: Devise the best possible approach to meet these requirements and edge cases. Then, Take the role of a skeptic. Consider edge cases, potential errors, or false positives that may arise to watch out for here. Test every assumption and try to come up with at least one way the approach could fail. Let your creativity guide you. Await next steps. Step 4: Brainstorm at least 3 alternative strategies to achieve the goal in step 2 and the edge cases in step 3. Let your creativity shine in your proposed solutions. await next steps. 
 
-Step 5: Now, commence coding. If the program is complex, break it down into manageable sections and present each part sequentially, else just complete the entire code. After execution, highlight any limitations that the user should be aware of in the chosen approach. Pause here and wait. 
+Step 5: Now, commence writing the full code. If the program is complex, break it down into manageable sections and present each part sequentially, else just complete the entire code. After execution, highlight any limitations that the user should be aware of in the chosen approach. Pause here and wait. 
 
 Step 6: Imagine a specialist reviewing your code and suggests improvements, including creative ideas. Prioritize the most important changes and discard ones that don't achieve the goal, revise your code accordingly, and summarize the adjustments you've made in a bullet-point format. Pause here and wait. 
 
