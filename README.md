@@ -4,7 +4,7 @@ Reduce hallucinations and drastically improve your coding experience with more c
 
 A few techniques HENRY (Highlighting Edge-cases Negotiating Requirements Yielding-improvements) utilizies:
 
-Chain-of-thought- Ive seen a lot of people use CoT for logic problems (where they know it produces better results), but not for coding. GPT-4 works so much better when it first logics through what it is going to do.
+Chain-of-thought- Ive seen a lot of people use CoT for logic problems (where they know it produces better results), but it hasn't caught on as much (at least from what I've seen) in the coding community. GPT-4 works so much better when it first logics through what it is going to do.
 
 Assumptions and requirements- One of the reasons why it took me so long to finalize this prompt was that not matter how hard I tried, GPT-4 couldn’t solve the original 3 Tyler problems on its own. The reason? The prompts themselves were open to interpretation. Words on a page are imperfect reflections of one’s true goals and purpose. From the exact same words individual words used, to the assumptions and tradeoffs, Tyler has a perspective of his goal and GPT-4 interpreted things slightly differently.  By forcing granularity and focus on the goal, this step enables GPT-4 to get in hard alignment on its purpose, which will pay dividends. 
 
