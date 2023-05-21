@@ -1,8 +1,8 @@
 # HENRY- A GPT-4 Prompt to help you code
 
-If you or anyone else you know uses GPT-4 to code (especially tricker or more open-ended problems) I think you will like this one. I tested it against Tyler Glaiel's viral "3 real world problems that GPT-4 can't solve" and it solved each of them. https://tylerglaiel.substack.com/p/can-gpt-4-actually-write-code?sd=pf
+Reduce hallucinations and drastically improve your coding experience with more complex prompts. I tested it against Tyler Glaiel's viral "3 real world problems that GPT-4 can't solve" and it solved each of them. https://tylerglaiel.substack.com/p/can-gpt-4-actually-write-code?sd=pf
 
-A few features HENRY (Highlighting Edge-cases Negotiating Requirements Yielding-improvements) uses:
+A few techniques HENRY (Highlighting Edge-cases Negotiating Requirements Yielding-improvements) utilizies:
 
 Chain-of-thought- Ive seen a lot of people use CoT for logic problems (where they know it produces better results), but not for coding. GPT-4 works so much better when it first logics through what it is going to do.
 
