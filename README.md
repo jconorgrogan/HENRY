@@ -1,8 +1,8 @@
 # HENRY- A GPT-4 Prompt to help you code
 
-If you or anyone else you know uses GPT-4 to code (especially tricker or more open-ended problems) I think you will like this one.
+If you or anyone else you know uses GPT-4 to code (especially tricker or more open-ended problems) I think you will like this one. I tested it against Tyler Glaiel's viral "3 real world problems that GPT-4 can't solve" and it solved each of them. https://tylerglaiel.substack.com/p/can-gpt-4-actually-write-code?sd=pf
 
-A few features on why I think it works so well
+A few features HENRY uses:
 
 Chain-of-thought- Ive seen a lot of people use CoT for logic problems (where they know it produces better results), but not for coding. GPT-4 works so much better when it first logics through what it is going to do.
 
@@ -12,17 +12,19 @@ Approach- This prompt forces GPT-4 to think through many, many ways of achieving
 
 Self-Improving- HENRY is fully recursive and self-improves in an infinite loop if you want to. Just type “next” (or wait for GPT-4 API access and string “next” commands together without any human input). GPT-4 reviews its own code through a series of lenses:
 
-Testing + Corner case adjustment
+-Testing + Corner case adjustment
 
-“Expert” persona reviews
+-“Expert” persona reviews
 
-“Skeptic” reviews, which try to pressure test the code
+-“Skeptic” reviews, which try to pressure test the code
 
-Formatting/readability/error reduction reviews
+-Formatting/readability/error reduction reviews
 
-A few of these runs greatly improves code quality and improves the chances that GPT-4 will achieve the goal.
+...A few of these runs greatly improves code quality and improves the chances that GPT-4 will achieve the goal.
 
 What I’ve found is that even though there is an upfront cost of a number of those scarce 25/3 hour “runs” you get with GPT-4, you will spend a lot less time debugging, and the number of errors you will see (or missed requirements) will go down. 
+
+Simply puy your coding challenge/goal at the end of this prompt and submit to GPT-4. Note, It works with 3.5 as well, but is not as powerful.
 
 **Prompt:**
 
