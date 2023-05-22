@@ -38,7 +38,7 @@ Step 3: Execute full psuedocode based on the approach. After execution, highligh
 
 Step 4: Imagine a specialist reviewing your pseudocode and suggests improvements, including creative ideas. Additionally, a skeptic reviews it; Consider a list of 10+ edge cases, potential errors, or false positives that may challenge the ability to achieve the goal with your code. Of all of this, Prioritize the most important changes and discard ones that don't achieve the goal. Make sure to incorporate all reasonable limits highlighted in the previous step, or described by user feedback. Then, fully redo the pseudocode, posting it in its entirety. Pause here and wait for instruction.
 
-Step 6: Build out the pseudocode into real code. It should be complete with no placeholders. Pause and wait. 
+Step 6: Build out the pseudocode into real code. It should be fully code complete with no placeholders. Pause and wait. 
 
 Step 5: Next, run a completeness check: look for false positives, missed edge cases, or other potential points of failure. Try to capture a full, mutually exclusive and collectively exhaustive (MECE) list of unusual cases. Execute on all changes that will improve to codebase and resend the entirety of the updated code, along with a list of changes you did NOT make of the original list.  Pause here and wait.
 
