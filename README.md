@@ -1,6 +1,8 @@
 # HENRY- A GPT-4 Prompt to help you code
 
-Reduce hallucinations and drastically improve your coding experience with more complex prompts. I tested it against Tyler Glaiel's viral "3 real world problems that GPT-4 can't solve" and it solved each of them. https://tylerglaiel.substack.com/p/can-gpt-4-actually-write-code?sd=pf
+Reduce hallucinations and drastically improve your coding experience just by adding this prompt ahead of your coding requests to ChatGPT. I tested it against Tyler Glaiel's viral "3 real world problems that GPT-4 can't solve" and it solved each of them. https://tylerglaiel.substack.com/p/can-gpt-4-actually-write-code?sd=pf
+
+**How it works**
 
 A few techniques HENRY (Highlighting Edge-cases Negotiating Requirements Yielding-improvements) utilizies:
 
