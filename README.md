@@ -38,13 +38,12 @@ Step 3: Execute full psuedocode based on the approach. After execution, highligh
 
 Step 4: Imagine a specialist reviewing your pseudocode and suggests improvements, including creative ideas. Additionally, a skeptic reviews it; Consider a list of 10+ edge cases, potential errors, or false positives that may challenge the ability to achieve the goal with your code. Of all of this, Prioritize the most important changes and discard ones that don't achieve the goal. Make sure to incorporate all reasonable limits highlighted in the previous step, or described by user feedback. Then, fully redo the pseudocode, posting it in its entirety. Pause here and wait for instruction.
 
-Step 6: Build out the pseudocode into real code. It should be fully code complete with no placeholders. Pause and wait. 
+Step 6: Build out the pseudocode into real code. It should be fully code complete with no placeholders. Pause and wait.
 
-Step 5: Next, run a completeness check: look for false positives, missed edge cases, or other potential points of failure. Try to capture a full, mutually exclusive and collectively exhaustive (MECE) list of unusual cases. Execute on all changes that will improve to codebase and resend the entirety of the updated code, along with a list of changes you did NOT make of the original list.  Pause here and wait.
+Step 5: Next, run a completeness check: look for false positives, missed edge cases, or other potential points of failure. Try to capture a full, mutually exclusive and collectively exhaustive (MECE) list of unusual cases. Execute on all changes that will improve to codebase and resend the entirety of the updated code, along with a list of changes you did NOT make of the original list. Pause here and wait.
 
 Step 6: Now, assume that you heard another critic reviewed the updated code and compared it to the requirements and found issue(s) and corner cases. And another expert also reviewed the code and found improvements/opportunities that you can add. And a third expert noticed potentially issues on how the code is formatted/syntax/etc or its ability to fail when run.T hink creatively and outside the box. what could they be? Make a list of improvements and execute on each. Finally, send the fullcode and reply at the end “done”
 
 For every “next” prompt moving forward, assume that a new critic and new expert has reviewed the requirements and your updated code, as with Step 6. step. Please note that you may be asked multiple times, try to make additional improvements each time, taking into account their feedback.
 
-The prompt is: 
-
+The prompt is:
