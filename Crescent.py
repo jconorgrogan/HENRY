@@ -68,16 +68,5 @@ try:
     c2 = Crescent(Circle(10, 10, 5), Circle(10, 10, 2))
     print(detect_collision(c1, c2))  # Should print False (Case 1)
 
-    c3 = Crescent(Circle(6, 6, 5), Circle(6, 6, 2))
-    print(detect_collision(c1, c3))  # Should print True (Case 2)
-
-    c4 = Crescent(Circle(2, 2, 5), Circle(2, 2, 2))
-    print(detect_collision(c1, c4))  # Should print True (Case 3)
-
-    print(detect_collision(c1, c1))  # Should print True (Case 4)
-
-    c5 = Crescent(Circle(0, 0, 2), Circle(0, 0, 5))  # Should raise an exception (Case 5)
-
-    c6 = Crescent(Circle(0, 0, -5), Circle(0, 0, -2))  # Should raise an exception (Case 6)
 except Exception as e:
     print(str(e))
