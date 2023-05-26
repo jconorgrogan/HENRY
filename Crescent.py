@@ -64,7 +64,7 @@ def detect_collision(crescent1, crescent2):
 
 # Test Cases
 try:
-    c1 = Crescent(Circle(0, 0, 5), Circle(0, 0, 2))
+    c1 = Crescent(Circle(0, 0, 5), Circle(4, 3, 2))
     c2 = Crescent(Circle(10, 10, 5), Circle(10, 10, 2))
     print(detect_collision(c1, c2))  # Should print False (Case 1)
 
