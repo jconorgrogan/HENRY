@@ -1,0 +1,24 @@
+name: one-pair-hog-benchmark
+on:
+  push:
+    branches: [one-pair-hog-benchmark]
+  workflow_dispatch:
+jobs:
+  benchmark:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch torchvision scikit-learn scikit-image numpy
+      - name: Run five-seed exact split benchmark
+        run: python one_pair_hog.py --seeds 0,1,2,3,4 --out results
+      - uses: actions/upload-artifact@v4
+        with:
+          name: one-pair-hog-results
+          path: results/
