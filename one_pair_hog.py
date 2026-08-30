@@ -26,30 +26,27 @@ def xor(a, b):
 
 
 def build_indices_labels(seed, labels):
+    # Exact IPG/DomainBed RNG order: shuffle, label flip, then color flip per environment.
     seed_all(seed)
     perm = torch.randperm(len(labels))
-    labels = labels[perm]
+    shuffled_labels = labels[perm]
     train_idx, val_idx = [], []
-    noisy_by_env = []
-    global_indices = []
+    noisy_by_env, global_indices = [], []
     for i, e in enumerate(ENVS):
         idx = perm[i::3]
-        raw_y = labels[i::3]
+        raw_y = shuffled_labels[i::3]
         y = (raw_y < 5).float()
         y = xor(y, bernoulli(LABEL_NOISE, len(y))).long()
         _colors = xor(y.float(), bernoulli(e, len(y)))
         global_indices.append(idx)
         noisy_by_env.append(y)
+    y_train, y_val = [], []
     for i in range(2):
         n = len(global_indices[i])
         n_train = math.ceil(n * TRAIN_FRAC)
         q = torch.randperm(n, generator=torch.Generator().manual_seed(42))
         train_idx.append(global_indices[i][q[:n_train]])
         val_idx.append(global_indices[i][q[n_train:]])
-    y_train=[]; y_val=[]
-    for i in range(2):
-        n=len(global_indices[i]); n_train=math.ceil(n*TRAIN_FRAC)
-        q=torch.randperm(n,generator=torch.Generator().manual_seed(42))
         y_train.append(noisy_by_env[i][q[:n_train]])
         y_val.append(noisy_by_env[i][q[n_train:]])
     return (torch.cat(train_idx).numpy(), torch.cat(y_train).numpy(),
@@ -58,6 +55,7 @@ def build_indices_labels(seed, labels):
 
 
 def infer_swap_from_one_pair(image):
+    # Same supervision object used by IPG: one underlying image shown in each channel.
     image = image.astype(np.float32) / 255.0
     z = np.zeros_like(image)
     left = np.stack([image, z])
@@ -69,6 +67,22 @@ def infer_swap_from_one_pair(image):
         scores.append((residual,perm))
     scores.sort()
     return scores[0][1], scores
+
+
+def compile_quotient(images_u8, learned_perm):
+    # Construct colored observations, then apply the group sum I + learned_perm.
+    # Alternating colors are used solely to certify invariance over both orbit elements.
+    x = images_u8.astype(np.float32) / 255.0
+    n = len(x)
+    colors = np.arange(n) % 2
+    colored = np.zeros((n, 2, 28, 28), dtype=np.float32)
+    colored[np.arange(n), colors] = x
+    projected = colored + colored[:, list(learned_perm)]
+    if not np.array_equal(projected[:, 0], projected[:, 1]):
+        raise RuntimeError('Compiled representation is not invariant')
+    if not np.array_equal(projected[:, 0], x):
+        raise RuntimeError('Compiled quotient does not equal grayscale oracle')
+    return projected[:, 0]
 
 
 def compute_hog(images):
@@ -87,8 +101,8 @@ def main():
     tr=MNIST('mnist_data',train=True,download=True); te=MNIST('mnist_data',train=False,download=True)
     images=np.concatenate([tr.data.numpy(),te.data.numpy()]); labels=torch.cat([tr.targets,te.targets])
     learned_perm, scores=infer_swap_from_one_pair(images[0])
-    if learned_perm != (1,0): raise RuntimeError((learned_perm,scores))
-    feats=compute_hog(images)
+    projected_images=compile_quotient(images, learned_perm)
+    feats=compute_hog(projected_images)
     rows=[]
     for seed in seeds:
         ti,yt,vi,yv,xi,yx=build_indices_labels(seed,labels)
@@ -102,6 +116,7 @@ def main():
         test=accuracy_score(yx,model.predict(feats[xi]))
         row={'seed':seed,'pair_budget':1,'learned_perm':list(learned_perm),
              'identity_residual':scores[1][0],'swap_residual':scores[0][0],
+             'quotient_equals_grayscale_oracle':True,
              'selected_C':C,'validation_accuracy':val,'test_accuracy':test}
         rows.append(row); print('RESULT',json.dumps(row,sort_keys=True),flush=True)
     acc=np.array([r['test_accuracy'] for r in rows])
